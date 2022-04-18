@@ -54,7 +54,7 @@ public class most_popular extends Algorithm {
     @Override
     public LongArrayList getRecommendations(List<Notification_Requete> id_event){
         //return the items sorted by their click count
-        System.out.println( "event counter "+Event_Counter);
+        System.out.println( "\nevent counter "+Event_Counter);
         return (LongArrayList) sortByValueAndGetKeys(Event_Counter, false, new LongArrayList());
 
     }
