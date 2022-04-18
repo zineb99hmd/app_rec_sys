@@ -1,6 +1,8 @@
+import java.util.Date;
+
 public class Notification_Item {
     long id_item;
-    String created_at;
+    Date created_at;
     String Url;
     long category;
     String text;
@@ -9,7 +11,7 @@ public class Notification_Item {
     public Notification_Item(Item item){
         this.item=item;
     }
-    public Notification_Item(long id_item, String created_at, String Url, long category, String text, String title){
+    public Notification_Item(long id_item, Date created_at, String Url, long category, String text, String title){
         this.id_item=id_item;
         this.created_at=created_at;
         this.Url=Url;

@@ -49,6 +49,7 @@ public class sort {
 
                     long id_item = Long.parseLong(split_file[3].trim());
                     Date created_at = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(split_file[2]);
+                    String created_at_mongodb=split_file[2];
                     String domain = split_file[1];
                     String recom = split_file[4];
                     String Url = split_file[5];
@@ -59,32 +60,17 @@ public class sort {
                     //enregistrer mongodb -------------
                     Document document = new Document();
                     document.append("Domain", domain);
-                    document.append("CeatedAt",created_at);
+                    document.append("CeatedAt",created_at_mongodb);
                     document.append("ItemID",id_item);
                     document.append("Recommendable",recom);
                     document.append("URL",Url);
                     document.append("Title",title);
                     document.append("category",category);
                     document.append("Text",text);
-                    //database.getCollection("Item").insertOne(document);
-                    //System.out.println("Document inserted successfully item");
-                    //add document in collection
-                    /*try {
-                        Document document_Item = collection_Item.insertOne(new Document()
-                                .append("_id", new ObjectId())
-                                .append("", "")
-                                .append("", "")
-                                .append("","");
-                        System.out.println("Success! Inserted document id: " document_Item );
-                    } catch (Exception e) {
-                        System.err.println("Unable to insert due to an error: " + e);
-                    }*/
-
-                    //Map<Long, Item> item = new HashMap<>();
-                    // item.put(id_item, i);
+                    database.getCollection("Item").insertOne(document);
                     session.add(i);
                     list_item.add(i);
-                    //System.out.println("item " + session);
+
 
                 }}
 
@@ -101,6 +87,7 @@ public class sort {
                     long user_id_event = Long.parseLong(split_file_event[2]);
                     //SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
                     Date time_event = new Date((Long.parseLong(split_file_event[3])));
+                    String time_mongodb=split_file_event[3];
                     long geoUser= Long.parseLong(split_file_event[4]);
                     long deviceType= Long.parseLong(split_file_event[5]);
                     //String timestamp = sf.format(time);
@@ -115,12 +102,12 @@ public class sort {
                     document.append("actionType", actiontype);
                     document.append("ItemID",item_id_event);
                     document.append("UserId",user_id_event);
-                    document.append("TimeStamp",time_event);
+                    document.append("TimeStamp",time_mongodb);
                     document.append("geoUser",geoUser);
                     document.append("deviceType",deviceType);
 
-                    //database.getCollection("Event").insertOne(document);
-                    //System.out.println("Document inserted successfully Event");
+                    database.getCollection("Event").insertOne(document);
+
 
 
 
@@ -157,11 +144,8 @@ public class sort {
             }
         }));
         for(Object Obj:a) {
-            //System.out.println(Obj);
 
         }
-
-
         return a;
 
     }

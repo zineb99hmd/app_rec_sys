@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Notification_Requete {
 
     String id_event;
@@ -5,8 +7,8 @@ public class Notification_Requete {
     long id_user;
     long geo;
     long device_type;
-    String time;
-    public Notification_Requete(String id_event , long id_user, String time, long geo, long device_type){
+    Date time;
+    public Notification_Requete(String id_event , long id_user, Date time, long geo, long device_type){
         this.id_event=id_event;
         this.id_user=id_user;
         this.time=time;
