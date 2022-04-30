@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="795.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page0">
+   <children>
+      <AnchorPane prefHeight="28.0" prefWidth="795.0" style="-fx-background-color: #218c74;">
+         <children>
+            <Label layoutX="246.0" layoutY="1.0" prefHeight="28.0" prefWidth="301.0" text="  Evaluation des systèmes de recommandation" textFill="#fcfafa">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="493.0" fitWidth="776.0" layoutX="23.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@interface_system_recommeandation.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
