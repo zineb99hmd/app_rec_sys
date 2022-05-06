@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="854.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page3HorsLigne">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="29.0" prefWidth="854.0" style="-fx-background-color: #edddbd;">
+         <children>
+            <Button layoutX="806.0" layoutY="1.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="21.0" style="-fx-background-color: #edddbd;" text="X" />
+            <Button layoutX="773.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" style="-fx-background-color: #edddbd;" text="-" />
+            <Button layoutX="687.0" layoutY="2.0" mnemonicParsing="false" text="A propos" />
+            <Label layoutY="1.0" prefHeight="28.0" prefWidth="306.0" text="  Evaluation des systèmes de recommandation">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="722.0" layoutY="573.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="page d'acceuil " />
+      <VBox layoutY="29.0" prefHeight="583.0" prefWidth="306.0" style="-fx-background-color: #fae3a3;">
+         <children>
+            <Pane prefHeight="182.0" prefWidth="299.0">
+               <children>
+                  <ImageView fitHeight="176.0" fitWidth="177.0" layoutX="67.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@3820147.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <MenuButton fx:id="menusystem" mnemonicParsing="false" prefHeight="26.0" prefWidth="299.0" style="-fx-background-color: #ffe699;" text="choisir un  systeme de recommandation :">
+               <items>
+                  <RadioMenuItem fx:id="Random" mnemonicParsing="false" onAction="#random" text="Random">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tgsystem" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem fx:id="MostPopular" mnemonicParsing="false" onAction="#mostPopular" text="MostPopular" toggleGroup="$tgsystem" />
+                  <RadioMenuItem fx:id="RecentlyClicked" mnemonicParsing="false" onAction="#recentlyClicked" text="Recently clicked" toggleGroup="$tgsystem" />
+                  <RadioMenuItem fx:id="RecentlyPopular" mnemonicParsing="false" onAction="#recentlyPopular" text="Recently Popular" toggleGroup="$tgsystem" />
+                  <RadioMenuItem fx:id="CoOccurence" mnemonicParsing="false" onAction="#coccurence" text="Co-Occurence" toggleGroup="$tgsystem" />
+                  <RadioMenuItem fx:id="ItemItemCF" mnemonicParsing="false" onAction="#itemItemCF" text="Item-Item-CF" toggleGroup="$tgsystem" />
+               </items>
+            </MenuButton>
+            <Pane prefHeight="19.0" prefWidth="299.0" />
+            <MenuButton fx:id="menumetric" mnemonicParsing="false" prefHeight="26.0" prefWidth="298.0" style="-fx-background-color: #ffe699;" text="choisir les metriques d'évaluations :">
+               <items>
+                  <RadioMenuItem fx:id="ClickThroughRate" mnemonicParsing="false" onAction="#getlist" text="ClickThroughRate" />
+                  <RadioMenuItem fx:id="F1" mnemonicParsing="false" onAction="#getlist" text="F1" />
+                  <RadioMenuItem fx:id="MAP" mnemonicParsing="false" onAction="#getlist" text="MAP" />
+                  <RadioMenuItem fx:id="MRR" mnemonicParsing="false" onAction="#getlist" text="MRR" />
+                  <RadioMenuItem fx:id="MeanF1" mnemonicParsing="false" onAction="#getlist" text="MeanF1" />
+                  <RadioMenuItem fx:id="NDCG" mnemonicParsing="false" onAction="#getlist" text="NDCG" />
+                  <RadioMenuItem fx:id="PrecisionOrRecall" mnemonicParsing="false" onAction="#getlist" text="PrecisionOrRecall" />
+               </items>
+            </MenuButton>
+            <Pane prefHeight="22.0" prefWidth="299.0" />
+            <Pane prefHeight="18.0" prefWidth="299.0" />
+            <Label alignment="CENTER" prefHeight="22.0" prefWidth="281.0" text="   ajouter les limites de recommandations :" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="limites" prefHeight="34.0" prefWidth="284.0" style="-fx-background-color: #ffe699;" />
+            <Pane prefHeight="16.0" prefWidth="299.0" />
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="303.0" text="ajouter un ratio :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Slider fx:id="ratio" majorTickUnit="10.0" prefHeight="46.0" prefWidth="229.0" showTickLabels="true" showTickMarks="true" value="50.0" />
+            <Pane prefHeight="38.0" prefWidth="299.0" />
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="38.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Separator layoutX="305.0" layoutY="29.0" orientation="VERTICAL" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: #000000;" />
+      <TableView fx:id="AlgorithmTable" layoutX="359.0" layoutY="47.0" prefHeight="244.0" prefWidth="336.0">
+        <columns>
+          <TableColumn fx:id="Algorithm" prefWidth="128.7999267578125" text="Algorithms :" />
+          <TableColumn fx:id="resrecommandation" prefWidth="208.00009155273438" text="TOP N Recommandations " />
+        </columns>
+      </TableView>
+      <TableView fx:id="tableMetric" layoutX="359.0" layoutY="321.0" prefHeight="257.0" prefWidth="336.0">
+        <columns>
+          <TableColumn fx:id="Metrique" prefWidth="140.800048828125" text="Metriques :" />
+          <TableColumn fx:id="Resultats" prefWidth="193.60000610351562" text="Resultas " />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
