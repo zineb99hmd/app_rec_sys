@@ -74,7 +74,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Spinner fx:id="limites" prefHeight="34.0" prefWidth="284.0" style="-fx-background-color: #ffe699;" />
+            <Spinner fx:id="limites" editable="true" prefHeight="34.0" prefWidth="284.0" style="-fx-background-color: #ffe699;" />
             <Pane prefHeight="16.0" prefWidth="299.0" />
             <Label alignment="CENTER" prefHeight="30.0" prefWidth="303.0" text="ajouter un ratio :">
                <font>

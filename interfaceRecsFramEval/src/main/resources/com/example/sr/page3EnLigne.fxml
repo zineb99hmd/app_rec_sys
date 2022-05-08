@@ -73,14 +73,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Spinner fx:id="temps" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #ffe699;" />
+            <Spinner fx:id="temps" editable="true" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #ffe699;" />
             <Pane prefHeight="18.0" prefWidth="299.0" />
             <Label alignment="CENTER" prefHeight="22.0" prefWidth="281.0" text="   ajouter les limites de recommandations :" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Spinner fx:id="limites" prefHeight="26.0" prefWidth="247.0" style="-fx-background-color: #ffe699;" />
+            <Spinner fx:id="limites" editable="true" prefHeight="26.0" prefWidth="247.0" style="-fx-background-color: #ffe699;" />
             <Pane prefHeight="16.0" prefWidth="299.0" />
             <Pane prefHeight="38.0" prefWidth="299.0" />
             <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="38.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
