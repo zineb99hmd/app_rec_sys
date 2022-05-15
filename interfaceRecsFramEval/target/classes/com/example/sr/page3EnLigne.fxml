@@ -3,11 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -67,29 +69,41 @@
                   <RadioMenuItem fx:id="NDCG" mnemonicParsing="false" onAction="#getlist" text="NDCG" />
                </items>
             </MenuButton>
-            <Pane prefHeight="22.0" prefWidth="299.0" />
-            <Label alignment="CENTER" prefHeight="22.0" prefWidth="297.0" text="ajouter le temps d'évaluation :" textAlignment="RIGHT">
+            <Pane prefHeight="14.0" prefWidth="306.0" />
+            <Label alignment="CENTER" prefHeight="22.0" prefWidth="297.0" text="choisir le temps d'évaluation :" textAlignment="RIGHT">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Spinner fx:id="temps" prefHeight="27.0" prefWidth="246.0" style="-fx-background-color: #ffe699;" />
-            <Pane prefHeight="18.0" prefWidth="299.0" />
-            <Label alignment="CENTER" prefHeight="22.0" prefWidth="281.0" text="   ajouter les limites de recommandations :" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Spinner fx:id="limites" prefHeight="26.0" prefWidth="247.0" style="-fx-background-color: #ffe699;" />
-            <Pane prefHeight="16.0" prefWidth="299.0" />
-            <Pane prefHeight="38.0" prefWidth="299.0" />
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="38.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Pane prefHeight="38.0" prefWidth="306.0" />
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="page d'acceuil " textOverrun="WORD_ELLIPSIS">
+            <Pane prefHeight="39.0" prefWidth="306.0">
+               <children>
+                  <RadioButton fx:id="implicite" layoutX="202.0" layoutY="12.0" mnemonicParsing="false" onAction="#implicitefunc" text="implicite">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="choix" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="explicite" layoutX="35.0" layoutY="14.0" mnemonicParsing="false" onAction="#explicitefunc" text="explicite " toggleGroup="$choix" />
+               </children></Pane>
+            <Pane prefHeight="142.0" prefWidth="306.0">
+               <children>
+                  <Spinner fx:id="limites" editable="true" layoutX="42.0" layoutY="94.0" prefHeight="26.0" prefWidth="224.0" style="-fx-background-color: #ffe699;" />
+                  <Label layoutX="20.0" layoutY="57.0" prefHeight="29.0" prefWidth="268.0" text="   ajouter les limites de recommandations :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="temps" editable="true" layoutX="42.0" layoutY="23.0" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #ffe699;" />
+               </children></Pane>
+            <Pane prefHeight="69.0" prefWidth="306.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="TOP" layoutY="7.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="63.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="page d'acceuil " textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

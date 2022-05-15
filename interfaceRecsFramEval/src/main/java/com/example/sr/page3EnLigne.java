@@ -63,7 +63,10 @@ public class page3EnLigne implements Initializable {
     private RadioMenuItem MAP;
     @FXML
     private RadioMenuItem MeanF1;
-
+    @FXML
+    RadioButton explicite;
+    @FXML
+    RadioButton implicite;
     @FXML
     private RadioMenuItem MRR;
     @FXML
@@ -248,78 +251,169 @@ public class page3EnLigne implements Initializable {
     }
     @FXML
     private void start(ActionEvent event) {
-        if (menusystem.getText().equals("Random")) {
+        if (explicite.isSelected()) {
+            if (menusystem.getText().equals("Random")) {
 
-            Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), rand, getLimiteValue(), getTimeValue(),metricsList);
-
-
-        } else {
-            if (menusystem.getText().equals("MostPopular")) {
-
-                Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), MoP, getLimiteValue(), getTimeValue(), metricsList);
+                Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), rand, getLimiteValue(), getTimeValue(), metricsList);
 
 
             } else {
-                if (menusystem.getText().equals("Recently clicked")) {
+                if (menusystem.getText().equals("MostPopular")) {
 
-                    Sender.onlineStrategy(page2EnLigne.getLien_item(),page2EnLigne.getLien_event(),ReC, getLimiteValue(), getTimeValue(), metricsList);
+                    Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), MoP, getLimiteValue(), getTimeValue(), metricsList);
 
 
                 } else {
-                    if (menusystem.getText().equals("Recently Popular")) {
+                    if (menusystem.getText().equals("Recently clicked")) {
 
-                        Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), RcP, getLimiteValue(), getTimeValue(), metricsList);
+                        Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), ReC, getLimiteValue(), getTimeValue(), metricsList);
 
 
                     } else {
-                        if (menusystem.getText().equals("Co-Occurence")) {
+                        if (menusystem.getText().equals("Recently Popular")) {
 
-                            Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), CoC, getLimiteValue(), getTimeValue(), metricsList);
+                            Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), RcP, getLimiteValue(), getTimeValue(), metricsList);
 
 
                         } else {
-                            if (menusystem.getText().equals("Item-Item-CF")) {
+                            if (menusystem.getText().equals("Co-Occurence")) {
 
-                                Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), ItemCF, getLimiteValue(), getTimeValue(), metricsList);
+                                Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), CoC, getLimiteValue(), getTimeValue(), metricsList);
 
 
+                            } else {
+                                if (menusystem.getText().equals("Item-Item-CF")) {
+
+                                    Sender.onlineStrategy(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), ItemCF, getLimiteValue(), getTimeValue(), metricsList);
+
+
+                                }
                             }
                         }
                     }
                 }
             }
+            //Algorithms
+            System.out.println("my list *******************" + Sender.RecList);
+            for (int i = 0; i < Sender.RecList.size(); i++) {
+
+
+                AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
+
+            }
+            data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
+            Algorithme.setCellValueFactory(new PropertyValueFactory<table, String>("Alg"));
+            resrecommandation.setCellValueFactory(new PropertyValueFactory<table, String>("recommandation"));
+            AlgorithmTable.setItems(data_Alg);
+
+            //Metrics
+            for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+                metricTable.add(new table(Evaluator.ResmetricsName.get(i), Evaluator.ResmetricsResult.get(i)));
+            }
+            System.out.println(Evaluator.ResmetricsName);
+            System.out.println(Evaluator.ResmetricsResult);
+            data_Metric = FXCollections.observableArrayList(metricTable);
+            Metrique.setCellValueFactory(new PropertyValueFactory<table, String>("metrique"));
+            Resultats.setCellValueFactory(new PropertyValueFactory<table, String>("resultats"));
+            tableMetric.setItems(data_Metric);
+        } else {
+            if(implicite.isSelected()){
+
+                    if (menusystem.getText().equals("Random")) {
+
+                        Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), rand, getLimiteValue(), metricsList);
+
+
+                    } else {
+                        if (menusystem.getText().equals("MostPopular")) {
+
+                            Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), MoP, getLimiteValue(), metricsList);
+
+
+                        } else {
+                            if (menusystem.getText().equals("Recently clicked")) {
+
+                                Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), ReC, getLimiteValue(), metricsList);
+
+
+                            } else {
+                                if (menusystem.getText().equals("Recently Popular")) {
+
+                                    Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), RcP, getLimiteValue(), metricsList);
+
+
+                                } else {
+                                    if (menusystem.getText().equals("Co-Occurence")) {
+
+                                        Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), CoC, getLimiteValue(), metricsList);
+
+
+                                    } else {
+                                        if (menusystem.getText().equals("Item-Item-CF")) {
+
+                                            Sender.onlineStrategyWithIa(page2EnLigne.getLien_item(), page2EnLigne.getLien_event(), ItemCF, getLimiteValue(), metricsList);
+
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //Algorithms
+                    System.out.println("my list *******************" + Sender.RecList);
+                    for (int i = 0; i < Sender.RecList.size(); i++) {
+
+
+                        AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
+
+                    }
+                    data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
+                    Algorithme.setCellValueFactory(new PropertyValueFactory<table, String>("Alg"));
+                    resrecommandation.setCellValueFactory(new PropertyValueFactory<table, String>("recommandation"));
+                    AlgorithmTable.setItems(data_Alg);
+
+                    //Metrics
+                    for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+                        metricTable.add(new table(Evaluator.ResmetricsName.get(i), Evaluator.ResmetricsResult.get(i)));
+                    }
+                    System.out.println(Evaluator.ResmetricsName);
+                    System.out.println(Evaluator.ResmetricsResult);
+                    data_Metric = FXCollections.observableArrayList(metricTable);
+                    Metrique.setCellValueFactory(new PropertyValueFactory<table, String>("metrique"));
+                    Resultats.setCellValueFactory(new PropertyValueFactory<table, String>("resultats"));
+                    tableMetric.setItems(data_Metric);
+                }
+
+            }
+
         }
-        //Algorithms
-        System.out.println("my list *******************"+Sender.RecList);
-        for(int i=0;i<Sender.RecList.size();i++){
 
+    @FXML
 
+    private void explicitefunc(ActionEvent event) {
 
-            AlgorithmTabl.add(new table(Algorithm,Sender.RecList.get(i),0.0));
+        if (!explicite.isPressed()) {
+            temps.setVisible(true);
 
         }
-        data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
-        Algorithme.setCellValueFactory(new PropertyValueFactory<table,String>("Alg"));
-        resrecommandation.setCellValueFactory(new PropertyValueFactory<table,String>("recommandation"));
-        AlgorithmTable.setItems(data_Alg);
+    }
+    @FXML
+    private void implicitefunc(ActionEvent event) {
 
-        //Metrics
-        for(int i = 0; i< Evaluator.ResmetricsName.size(); i++){
-            metricTable.add(new table(Evaluator.ResmetricsName.get(i),Evaluator.ResmetricsResult.get(i)));
+        if (!explicite.isPressed()) {
+            temps.setVisible(false);
+
+
+
         }
-        System.out.println(Evaluator.ResmetricsName);
-        System.out.println(Evaluator.ResmetricsResult);
-        data_Metric = FXCollections.observableArrayList(metricTable);
-        Metrique.setCellValueFactory(new PropertyValueFactory<table,String>("metrique"));
-        Resultats.setCellValueFactory(new PropertyValueFactory<table,String>("resultats"));
-        tableMetric.setItems(data_Metric);
     }
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        temps.setVisible(false);
         SpinnerValueFactory<Integer> valueFactoryLimites = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000);
         valueFactoryLimites.setValue(1);
 

@@ -2,7 +2,6 @@ package evaluation.metrics;
 
 import java.util.ArrayList;
 import java.util.Map;
-
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import it.unimi.dsi.fastutil.longs.LongArrayList;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;

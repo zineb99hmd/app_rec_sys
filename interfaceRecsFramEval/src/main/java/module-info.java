@@ -7,5 +7,6 @@ module SR {
     requires JavaEWAH;
     requires commons.lang;
     requires commons.math3;
+    requires json;
     opens com.example.sr;
 }
