@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
@@ -84,8 +85,19 @@ public class page3HorsLigne implements Initializable {
 
     @FXML
     private TableColumn<table, String> resrecommandation;
+    @FXML
+    private BarChart<String,Number> barChart;
 
-
+    @FXML
+    private LineChart<String,Number> lineChart;
+    @FXML
+    private CategoryAxis x;
+    @FXML
+    private NumberAxis y;
+    @FXML
+    private Button Barchart;
+    @FXML
+    private Button linechart;
     @FXML
     TableColumn<table, String> precorrec;
     private SimpleStringProperty metrique;
@@ -249,6 +261,42 @@ public class page3HorsLigne implements Initializable {
 
         System.out.println("metrics list : " + metricsList);
     }
+    @FXML
+    private void Gr(ActionEvent event) {
+        if (!Barchart.isPressed()) {
+            barChart.setVisible(true);
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            series.setName(Algorithme);
+            String number;
+            for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+
+                series.getData().add(new XYChart.Data<>(Evaluator.ResmetricsName.get(i), Float.parseFloat(Evaluator.ResmetricsResult.get(i))));
+
+
+            }
+            barChart.getData().add(series);
+
+
+        }}
+    @FXML
+    private void line_Gr(ActionEvent event) {
+        if (!linechart.isPressed()) {
+            lineChart.setVisible(true);
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            series.setName(Algorithme);
+            String number;
+            for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+
+                series.getData().add(new XYChart.Data<>(Evaluator.ResmetricsName.get(i), Float.parseFloat(Evaluator.ResmetricsResult.get(i))));
+
+
+            }
+            lineChart.getData().add(series);
+
+
+        }}
 
     @FXML
     private void start(ActionEvent event) {
@@ -295,14 +343,17 @@ public class page3HorsLigne implements Initializable {
             }
         }
         //Algorithms
-        System.out.println("my list *******************"+Sender.RecList);
-        for(int i=0;i<Sender.RecList.size();i++){
-
-
-
-            AlgorithmTabl.add(new table(Algorithme,Sender.RecList.get(i),0.0));
-
-        }
+        AlgorithmTabl.add(new table("le protocole choisis :","Hors Ligne", 0.0));
+        AlgorithmTabl.add(new table("le system de recommandation choisis :",Algorithme, 0.0));
+        AlgorithmTabl.add(new table("le Ratio :",ratioValue.toString(), 0.0));
+        AlgorithmTabl.add(new table("le nombre de limites de recommandation  :",limiteValue.toString(), 0.0));
+//        for(int i=0;i<Sender.RecList.size();i++){
+//
+//
+//
+//            AlgorithmTabl.add(new table(Algorithme,Sender.RecList.get(i),0.0));
+//
+//        }
         data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
         Algorithm.setCellValueFactory(new PropertyValueFactory<table,String>("Alg"));
         resrecommandation.setCellValueFactory(new PropertyValueFactory<table,String>("recommandation"));

@@ -13,12 +13,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sender.Sender;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +87,22 @@ public class page3EnLigne implements Initializable {
     private TableColumn<table, String> resrecommandation;
     @FXML
     private RadioMenuItem PrecisionOrRecall;
+    @FXML
+    private NumberAxis taux_val ;
+    @FXML
+    private BarChart<String,Number> barChart;
+    @FXML
+    private LineChart<String,Number> lineChart;
+    @FXML
+    private CategoryAxis x;
+    @FXML
+    private NumberAxis y;
+    @FXML
+    private Button linechart;
+    @FXML
+    private Button Barchart;
+    @FXML
+    private CategoryAxis metric_cat;
     private SimpleStringProperty metrique;
     private SimpleStringProperty resultats;
     private SimpleStringProperty Alg;
@@ -238,15 +254,79 @@ public class page3EnLigne implements Initializable {
 
             }
 
-        if (PrecisionOrRecall.isSelected()&& (!metricsList.contains(precision))) {
-            metricsList.add(precision);
-
-        }else{
-            if (!PrecisionOrRecall.isSelected()&& (metricsList.contains(precision)))
-                metricsList.remove(precision);
-        }
+//        if (PrecisionOrRecall.isSelected()&& (!metricsList.contains(precision))) {
+//            metricsList.add(precision);
+//
+//        }else{
+//            if (!PrecisionOrRecall.isSelected()&& (metricsList.contains(precision)))
+//                metricsList.remove(precision);
+//        }
         System.out.println("metrics list : "+metricsList);
 
+
+    }
+//    private  void graphic(){
+//        XYChart.Series<String,Long> series=new XYChart.Series<>();
+//        series.setName("graph ");
+//
+//        System.out.println(Evaluator.ResmetricsName.size());
+//        System.out.println("name out graph :"+Evaluator.ResmetricsName);
+//        System.out.println("result out graph :"+Evaluator.ResmetricsResult);
+//        for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+//            System.out.println("name in graph :"+Evaluator.ResmetricsName);
+//            System.out.println("result in graph :"+Evaluator.ResmetricsResult);
+//            series.getData().add(new XYChart.Data<>(Evaluator.ResmetricsName.get(i), Integer.valueOf(Evaluator.ResmetricsResult.get(i))));
+//            series.getData().add(new XYChart.Data<>("hamza", 35));
+//            barChart.getData().add(series);
+//        }
+//    }
+    @FXML
+    private void Gr(ActionEvent event) {
+        if (!Barchart.isPressed()) {
+            barChart.setVisible(true);
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            series.setName(Algorithm);
+            String number;
+            System.out.println(Evaluator.ResmetricsName.size());
+            System.out.println("name out graph :" + Evaluator.ResmetricsName);
+            System.out.println("result out graph :" + Evaluator.ResmetricsResult);
+            for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+                System.out.println("name in graph :" + Evaluator.ResmetricsName);
+                System.out.println("result in graph :" + Evaluator.ResmetricsResult);
+                number = Evaluator.ResmetricsResult.get(i);
+                System.out.println("type of : " + number.getClass() + " " + number);
+                series.getData().add(new XYChart.Data<>(Evaluator.ResmetricsName.get(i), Float.parseFloat(Evaluator.ResmetricsResult.get(i))));
+
+
+            }
+            barChart.getData().add(series);
+
+
+    }}
+    @FXML
+    private void line_Gr(ActionEvent event) {
+        if (!linechart.isPressed()) {
+            lineChart.setVisible(true);
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            series.setName(Algorithm);
+
+            for (int i = 0; i < Evaluator.ResmetricsName.size(); i++) {
+
+                series.getData().add(new XYChart.Data<>(Evaluator.ResmetricsName.get(i), Float.parseFloat(Evaluator.ResmetricsResult.get(i))));
+
+
+            }
+            lineChart.getData().add(series);
+
+
+        }}
+    @FXML
+    private void bar(ActionEvent event){
+        if (!Barchart.isPressed()) {
+            barChart.setVisible(true);
+        }
 
     }
     @FXML
@@ -294,13 +374,16 @@ public class page3EnLigne implements Initializable {
                 }
             }
             //Algorithms
-            System.out.println("my list *******************" + Sender.RecList);
-            for (int i = 0; i < Sender.RecList.size(); i++) {
-
-
-                AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
-
-            }
+            AlgorithmTabl.add(new table("le protocole choisis :","EN Ligne", 0.0));
+            AlgorithmTabl.add(new table("le system de recommandation choisis :",Algorithm, 0.0));
+            AlgorithmTabl.add(new table("la méthode pour choisisr le temps d'évaluation  :","explicite", 0.0));
+            AlgorithmTabl.add(new table("le nombre de limites de recommandation  :",limiteValue.toString(), 0.0));
+//            for (int i = 0; i < Sender.RecList.size(); i++) {
+//
+//
+//                AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
+//
+//            }
             data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
             Algorithme.setCellValueFactory(new PropertyValueFactory<table, String>("Alg"));
             resrecommandation.setCellValueFactory(new PropertyValueFactory<table, String>("recommandation"));
@@ -361,13 +444,16 @@ public class page3EnLigne implements Initializable {
                         }
                     }
                     //Algorithms
-                    System.out.println("my list *******************" + Sender.RecList);
-                    for (int i = 0; i < Sender.RecList.size(); i++) {
-
-
-                        AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
-
-                    }
+                AlgorithmTabl.add(new table("le protocole choisis :","EN Ligne", 0.0));
+                AlgorithmTabl.add(new table("le system de recommandation choisis :",Algorithm, 0.0));
+                AlgorithmTabl.add(new table("la méthode pour choisisr le temps d'évaluation  :","implicite", 0.0));
+                AlgorithmTabl.add(new table("le nombre de limites de recommandation  :",limiteValue.toString(), 0.0));
+//                    for (int i = 0; i < Sender.RecList.size(); i++) {
+//
+//
+//                        AlgorithmTabl.add(new table(Algorithm, Sender.RecList.get(i), 0.0));
+//
+//                    }
                     data_Alg = FXCollections.observableArrayList(AlgorithmTabl);
                     Algorithme.setCellValueFactory(new PropertyValueFactory<table, String>("Alg"));
                     resrecommandation.setCellValueFactory(new PropertyValueFactory<table, String>("recommandation"));
@@ -411,6 +497,8 @@ public class page3EnLigne implements Initializable {
 
 
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         temps.setVisible(false);
@@ -438,6 +526,9 @@ public class page3EnLigne implements Initializable {
                 timeValue = Long.valueOf(temps.getValue());
             }
         });
+
+
+
     }
 
     public Long getTimeValue() {

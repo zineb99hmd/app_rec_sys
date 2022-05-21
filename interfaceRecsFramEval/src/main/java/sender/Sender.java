@@ -59,7 +59,6 @@ public class Sender {
         listUsers.addAll(transactionsForAllUsersToEvaluate.keySet());
         request = new Request();
         for ( Long idUser:listUsers){
-
             request.setId_user(idUser);
             System.out.println("recsLimit"+recsLimit);
             request.setLimit(recsLimit);

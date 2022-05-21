@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -17,21 +21,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="854.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page3HorsLigne">
+<Pane fx:id="rootpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="1178.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page3HorsLigne">
    <children>
-      <AnchorPane layoutX="-3.0" prefHeight="29.0" prefWidth="854.0" style="-fx-background-color: #edddbd;">
+      <AnchorPane layoutX="-3.0" prefHeight="29.0" prefWidth="1181.0" style="-fx-background-color: #edddbd;">
          <children>
-            <Button layoutX="806.0" layoutY="1.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="21.0" style="-fx-background-color: #edddbd;" text="X" />
-            <Button layoutX="773.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" style="-fx-background-color: #edddbd;" text="-" />
-            <Button layoutX="687.0" layoutY="2.0" mnemonicParsing="false" text="A propos" />
+            <Button layoutX="1130.0" layoutY="1.0" mnemonicParsing="false" onAction="#Quit" prefHeight="26.0" prefWidth="21.0" style="-fx-background-color: #edddbd;" text="X" />
+            <Button layoutX="1102.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" style="-fx-background-color: #edddbd;" text="-" />
+            <Button layoutX="1011.0" layoutY="1.0" mnemonicParsing="false" text="A propos" />
             <Label layoutY="1.0" prefHeight="28.0" prefWidth="306.0" text="  Evaluation des systèmes de recommandation">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
          </children>
       </AnchorPane>
-      <Button layoutX="722.0" layoutY="573.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="page d'acceuil " />
-      <VBox layoutY="29.0" prefHeight="583.0" prefWidth="306.0" style="-fx-background-color: #fae3a3;">
+      <VBox layoutY="29.0" prefHeight="746.0" prefWidth="306.0" style="-fx-background-color: #fae3a3;">
          <children>
             <Pane prefHeight="182.0" prefWidth="299.0">
                <children>
@@ -82,26 +85,53 @@
                </font>
             </Label>
             <Slider fx:id="ratio" majorTickUnit="10.0" prefHeight="46.0" prefWidth="229.0" showTickLabels="true" showTickMarks="true" value="50.0" />
-            <Pane prefHeight="38.0" prefWidth="299.0" />
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="38.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
+            <Pane prefHeight="105.0" prefWidth="306.0" />
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="44.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
+            <Pane prefHeight="123.0" prefWidth="308.0">
+               <children>
+                  <Button layoutX="-1.0" layoutY="37.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="page d'acceuil ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </VBox>
-      <Separator layoutX="305.0" layoutY="29.0" orientation="VERTICAL" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: #000000;" />
-      <TableView fx:id="AlgorithmTable" layoutX="359.0" layoutY="47.0" prefHeight="244.0" prefWidth="336.0">
+      <Separator layoutX="305.0" layoutY="29.0" orientation="VERTICAL" prefHeight="746.0" prefWidth="9.0" style="-fx-background-color: #000000;" />
+      <TableView fx:id="AlgorithmTable" layoutX="798.0" layoutY="36.0" prefHeight="244.0" prefWidth="365.0">
         <columns>
-          <TableColumn fx:id="Algorithm" prefWidth="128.7999267578125" text="Algorithms :" />
-          <TableColumn fx:id="resrecommandation" prefWidth="208.00009155273438" text="TOP N Recommandations " />
+          <TableColumn fx:id="Algorithm" prefWidth="252.79998779296875" text="les choix :" />
+          <TableColumn fx:id="resrecommandation" prefWidth="109.5999755859375" text="Resultats " />
         </columns>
       </TableView>
-      <TableView fx:id="tableMetric" layoutX="359.0" layoutY="321.0" prefHeight="257.0" prefWidth="336.0">
+      <TableView fx:id="tableMetric" layoutX="366.0" layoutY="36.0" prefHeight="244.0" prefWidth="334.0">
         <columns>
-          <TableColumn fx:id="Metrique" prefWidth="140.800048828125" text="Metriques :" />
-          <TableColumn fx:id="Resultats" prefWidth="193.60000610351562" text="Resultas " />
+          <TableColumn fx:id="Metrique" prefWidth="168.79998779296875" text="Metriques :" />
+          <TableColumn fx:id="Resultats" prefWidth="164.79995727539062" text="Resultas " />
         </columns>
       </TableView>
+      <Button fx:id="Barchart" layoutX="480.0" layoutY="291.0" mnemonicParsing="false" onAction="#Gr" prefHeight="29.0" prefWidth="109.0" text="BarChart" />
+      <Button fx:id="linechart" layoutX="932.0" layoutY="291.0" mnemonicParsing="false" onAction="#line_Gr" prefHeight="29.0" prefWidth="109.0" text="LineChart" />
+      <BarChart fx:id="barChart" categoryGap="15.0" layoutX="301.0" layoutY="328.0" prefHeight="410.0" prefWidth="438.0">
+        <xAxis>
+          <CategoryAxis prefHeight="20.0" prefWidth="352.0" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="taux de recommandation" minorTickCount="10" prefHeight="363.0" prefWidth="57.0" side="LEFT" tickLabelGap="1.0" />
+        </yAxis>
+      </BarChart>
+      <LineChart fx:id="lineChart" layoutX="734.0" layoutY="324.0" prefHeight="404.0" prefWidth="444.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" label="taux de recommandation " minorTickCount="10" prefHeight="362.0" prefWidth="59.0" side="LEFT" />
+        </yAxis>
+      </LineChart>
    </children>
 </Pane>

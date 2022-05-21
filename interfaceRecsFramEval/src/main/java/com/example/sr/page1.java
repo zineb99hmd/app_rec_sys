@@ -27,8 +27,7 @@ public class page1 implements Initializable {
     RadioButton enLigne;
     @FXML
     Button commencer_evaluate;
-    @FXML
-    Button commencer;
+
     public String horsorenLigne;
     @FXML
 
@@ -73,7 +72,7 @@ public class page1 implements Initializable {
             horsorenLigne="horsLigne";
         }
         if(!horsLigne.isSelected() || !enLigne.isSelected()){
-            commencer.setVisible(true);
+           // commencer.setVisible(true);
         }
         Pane p= FXMLLoader.load(getClass().getResource("page2HorsLigne.fxml"));
         rootpane.getChildren().setAll(p);
@@ -85,7 +84,7 @@ public class page1 implements Initializable {
             System.out.println(horsorenLigne);
         }
         if(!horsLigne.isSelected() || !enLigne.isSelected()){
-            commencer.setVisible(true);
+            //commencer.setVisible(true);
         }
         Pane p= FXMLLoader.load(getClass().getResource("page2EnLigne.fxml"));
         rootpane.getChildren().setAll(p);
@@ -98,7 +97,7 @@ public class page1 implements Initializable {
         choixlabel.setVisible(false);
         horsLigne.setVisible(false);
         enLigne.setVisible(false);
-        commencer.setVisible(false);
+       // commencer.setVisible(false);
 
     }
 

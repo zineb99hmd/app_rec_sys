@@ -1,0 +1,134 @@
+* {
+	-fx-box-sizing: border-box;
+	-fx-margin: 0;
+	-fx-padding: 0;
+}
+
+body {
+	-fx-width: 100%;
+	-fx-height: 100vh;
+	-fx-display: flex;
+	-fx-overflow: hidden;
+}
+
+.btn-container {
+	-fx-width: 100%;
+	-fx-height: 100%;
+	-fx-display: flex;
+	-fx-justify-content: center;
+	-fx-align-items: center;
+	-fx-background: var(--bg);
+
+	&:nth-child(1) {
+		-fx---btn-bg: #da0000;
+		-fx---bg: #f22c3a;
+	}
+	&:nth-child(2) {
+		-fx---btn-bg: #fac300;
+		-fx---bg: #fc6100;
+	}
+}
+
+button {
+	-fx---width: 180px;
+	-fx---height: 60px;
+	-fx-border: 0;
+	-fx-position: relative;
+	-fx-min-width: var(--width);
+	-fx-min-height: var(--height);
+	-fx-border-radius: var(--height);
+	-fx-color: #fff;
+	-fx-font-family: "Montserrat";
+	-fx-font-weight: bold;
+	-fx-background: rgba(0, 0, 0, 0.3);
+	-fx-cursor: pointer;
+	-fx-overflow: hidden;
+	-fx-display: flex;
+	-fx-justify-content: center;
+	-fx-align-items: center;
+	-fx-margin: 0 1rem;
+.text,.icon-container {
+		-fx-position: relative;
+		-fx-z-index: 2;
+	}
+
+	.icon-container {
+		-fx---icon-size: 25px;
+		-fx-position: relative;
+		-fx-width: var(--icon-size);
+		-fx-height: var(--icon-size);
+		-fx-margin-left: 15px;
+		-fx-transition: transform 500ms ease;
+
+		.icon {
+			-fx-position: absolute;
+			-fx-left: 0;
+			-fx-top: 0;
+			-fx-width: var(--icon-size);
+			-fx-height: var(--icon-size);
+			-fx-transition: transform 500ms ease, opacity 250ms ease;
+
+			&--left {
+				-fx-transform: translateX(-200%);
+				-fx-opacity: 0;
+			}
+
+			svg {
+				-fx-width: 100%;
+				-fx-height: 100%;
+				-fx-fill: #fff;
+			}
+		}
+	}
+
+	&::after {
+		-fx-content: "";
+		-fx-position: absolute;
+		-fx-left: 0;
+		-fx-top: 0;
+		-fx-width: 100%;
+		-fx-height: 100%;
+		-fx-background: var(--btn-bg);
+		-fx-border-radius: var(--height);
+		-fx-z-index: 1;
+		-fx-transition: transform 500ms ease;
+	}
+
+	&:hover {
+		&::after {
+			-fx-transform: translateX(65%);
+		}
+
+		.icon-container {
+			-fx-transform: translateX(125%);
+			.icon {
+				&--left {
+					-fx-transform: translateX(0);
+					-fx-opacity: 1;
+				}
+				&--right {
+					-fx-transform: translateX(200%);
+					-fx-opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.support {
+	-fx-position: absolute;
+	-fx-right: 10px;
+	-fx-bottom: 10px;
+	-fx-padding: 10px;
+	-fx-display: flex;
+	a {
+		-fx-margin: 0 10px;
+		-fx-color: #fff;
+		-fx-font-size: 1.8rem;
+		-fx-backface-visibility: hidden;
+		-fx-transition: all 150ms ease;
+		&:hover {
+			-fx-transform: scale(1.1);
+		}
+	}
+}
