@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="1178.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page2EnLigne">
+   <children>
+      <AnchorPane prefHeight="29.0" prefWidth="1178.0" style="-fx-background-color: #218c74;" stylesheets="@delete.css">
+         <children>
+            <Label layoutX="7.0" layoutY="1.0" prefHeight="28.0" prefWidth="306.0" text="  Evaluation des systèmes de recommandation" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="1138.0" onMouseClicked="#Quit" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@pngegg.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="29.0" layoutX="1106.0" layoutY="2.0" onMouseClicked="#minimize" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@download-icon-close+delete+hide+minimize+minus+remove+icon-1320166550528400094_512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="itemTable" layoutX="65.0" layoutY="190.0" prefHeight="445.0" prefWidth="430.0" stylesheets="@Table.css">
+        <columns>
+          <TableColumn fx:id="ItemID" prefWidth="151.20001220703125" text="ItemID" />
+          <TableColumn fx:id="createdAt" prefWidth="277.5999755859375" text="CreatedAt" />
+        </columns>
+      </TableView>
+      <TableView fx:id="eventTAble" layoutX="630.0" layoutY="190.0" prefHeight="445.0" prefWidth="491.0" stylesheets="@Table.css">
+        <columns>
+          <TableColumn fx:id="ItemId" prefWidth="104.0" text="ItemID " />
+          <TableColumn fx:id="UserId" prefWidth="136.79998779296875" text="UserID " />
+            <TableColumn fx:id="TimeStampe" prefWidth="239.2000732421875" text="TimeStamp" />
+        </columns>
+      </TableView>
+      <TextField fx:id="itemfield" layoutX="126.0" layoutY="139.0" prefHeight="25.0" prefWidth="258.0" />
+      <TextField fx:id="eventfield" layoutX="748.0" layoutY="140.0" prefHeight="25.0" prefWidth="244.0" />
+      <Label layoutX="194.0" layoutY="91.0" prefHeight="29.0" prefWidth="171.0" text="importer fichier Item :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="790.0" layoutY="92.0" prefHeight="29.0" prefWidth="171.0" text="importer fichier Event :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="604.0" layoutY="677.0" mnemonicParsing="false" onAction="#choisirAlgorithm" prefHeight="25.0" prefWidth="122.0" stylesheets="@dl.css" text="choisir l'algorithme" />
+      <Button layoutX="448.0" layoutY="677.0" mnemonicParsing="false" onAction="#test" prefHeight="25.0" prefWidth="128.0" stylesheets="@dl.css" text="afficher tableaux" />
+      <Pane layoutX="384.0" layoutY="123.0" prefHeight="61.0" prefWidth="200.0" style="-fx-background-color: white;" stylesheets="@delete.css">
+         <children>
+            <ImageView accessibleRole="BUTTON" fitHeight="29.0" fitWidth="46.0" layoutX="6.0" layoutY="16.0" onMouseClicked="#choix_File_item" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@upload-button-png-transparent-upload-button-images-172025.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="993.0" layoutY="120.0" prefHeight="61.0" prefWidth="99.0" style="-fx-background-color: white;" stylesheets="@delete.css">
+         <children>
+            <ImageView accessibleRole="BUTTON" fitHeight="29.0" fitWidth="46.0" layoutX="6.0" layoutY="16.0" onMouseClicked="#choix_File_event" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@upload-button-png-transparent-upload-button-images-172025.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="47.0" prefHeight="61.0" prefWidth="99.0" style="-fx-background-color: white;" stylesheets="@delete.css">
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="53.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@download-icon-arrows+back+chevron+circle+direction+left+icon-1320085937110004438_512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>

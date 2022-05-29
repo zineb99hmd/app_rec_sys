@@ -1,0 +1,40 @@
+.button{
+    -fx-font-veight: bold;
+    -fx-background-color: white;
+    -fx-border-radius: 20;
+    -fx-border-color: 	#ffdab9;
+    -fx-background-radius: 23;
+    -fx-border-width: 2;
+    -fx-border-veight:bold;
+    
+    
+    
+}
+.button:hover{
+    
+    -fx-background-color:	#f5deb3;
+    -fx-text-fill: black;
+    -fx-border-width: 2;
+     -fx-border-color:  #218c74;
+  -fx-effect:  dropshadow( one-pass-box , #ffebcd , 8 ,
+0.0 , 3 , 2 );
+    -fx-content-display: LEFT;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-scale-z: 1.2;
+       
+}
+
+.button:pressed{
+
+-fx-content-display: LEFT;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-scale-z: 0.9;
+	
+    
+    
+    
+    
+    
+}

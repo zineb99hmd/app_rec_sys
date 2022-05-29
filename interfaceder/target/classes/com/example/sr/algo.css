@@ -1,0 +1,84 @@
+.button{
+    -fx-font-veight: bold;
+    -fx-background-color: 	#f8f8ff;
+    -fx-border-radius: 23;
+    
+    -fx-border-color: 		#3cb371	;
+    -fx-background-radius: 26;
+    -fx-border-width: 2;
+    -fx-border-veight:bold;
+    
+    
+    
+}
+.button:hover{
+    
+    -fx-background-color:		#dcdcdc;
+    
+    -fx-text-fill: black;
+    -fx-border-width: 2;
+     -fx-border-color:  #218c74;
+	
+}
+
+
+.button:pressed{
+     -fx-font-veight: bold;
+    -fx-background-color: #808080;
+    -fx-text-fill: white;
+    -fx-border-color: #218c74;
+    -fx-border-radius: 22;
+    -fx-border-veight:10;
+    -fx-background-radius: 22;
+-fx-content-display: LEFT;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-scale-z: 1.0;
+	
+    
+    
+    
+    
+    
+}
+
+
+.radio-button .radio{
+-fx-border-width     : 1px   ;
+-fx-border-color     : #000  ;
+-fx-background-color : white ;
+-fx-border-radius    : 15px  ;
+-fx-height           : 15px  ; 
+
+
+
+}
+.radio-button .radio:hover{
+-fx-border-width     : 1px   ;
+-fx-border-color     : brown  ;
+-fx-background-color : white ;
+-fx-border-radius    : 15px  ;
+-fx-height           : 15px  ; 
+-fx-effect:  dropshadow( one-pass-box , black , 8 ,
+     0.0 , 3 , 0 );
+}
+
+.menu-button{
+    -fx-font-veight: bold;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: #4b4b4b;
+    -fx-border-radius: 22;
+    -fx-border-veight:bold;
+    -fx-background-radius: 22;
+    -fx-border-width: 1.5;
+    
+    
+}
+.menu-button:hover{
+    
+    
+    
+    -fx-effect:  dropshadow( one-pass-box , black , 10 ,
+     0.0 , 3 , 2 );
+}

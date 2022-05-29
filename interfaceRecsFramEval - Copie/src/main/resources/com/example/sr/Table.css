@@ -1,0 +1,32 @@
+.table-view {
+    -fx-base: white;
+	-fx-control-inner-background: white;
+    	-fx-table-cell-border-color: black;
+ 	-fx-table-header-border-color: black;
+    
+  
+   
+    
+}
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+         #218c74;
+	-fx-border-insets: 0 10 1 10;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+};

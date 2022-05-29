@@ -71,13 +71,13 @@
                </items>
             </MenuButton>
             <Pane prefHeight="22.0" prefWidth="299.0" />
-            <Pane prefHeight="18.0" prefWidth="299.0" />
-            <Label alignment="CENTER" prefHeight="22.0" prefWidth="281.0" text="   ajouter les limites de recommandations :" textAlignment="CENTER">
+            <Pane prefHeight="9.0" prefWidth="306.0" />
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="282.0" text="   ajouter les limites de recommandations :" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Spinner fx:id="limites" editable="true" prefHeight="34.0" prefWidth="284.0" style="-fx-background-color: #ffe699;" />
+            <Spinner fx:id="limites" editable="true" prefHeight="34.0" prefWidth="304.0" style="-fx-background-color: #ffe699;" />
             <Pane prefHeight="16.0" prefWidth="299.0" />
             <Label alignment="CENTER" prefHeight="30.0" prefWidth="303.0" text="ajouter un ratio :">
                <font>
@@ -85,7 +85,7 @@
                </font>
             </Label>
             <Slider fx:id="ratio" majorTickUnit="10.0" prefHeight="46.0" prefWidth="229.0" showTickLabels="true" showTickMarks="true" value="50.0" />
-            <Pane prefHeight="105.0" prefWidth="306.0" />
+            <Pane prefHeight="112.0" prefWidth="306.0" />
             <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#start" prefHeight="44.0" prefWidth="306.0" style="-fx-background-color: #ffe699;" text="start " textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="15.0" />

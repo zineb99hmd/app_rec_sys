@@ -23,19 +23,19 @@
                </font></Label>
          </children>
       </AnchorPane>
-      <Button fx:id="commencer_evaluate" layoutX="454.0" layoutY="464.0" mnemonicParsing="false" onAction="#choix_evaluate" prefHeight="44.0" prefWidth="196.0" text="commencer évaluation " />
-      <RadioButton fx:id="horsLigne" layoutX="308.0" layoutY="626.0" mnemonicParsing="false" onAction="#horsLigne" prefHeight="26.0" prefWidth="104.0" text="hors ligne ">
+      <Button fx:id="commencer_evaluate" layoutX="466.0" layoutY="484.0" mnemonicParsing="false" onAction="#choix_evaluate" prefHeight="44.0" prefWidth="196.0" text="commencer évaluation " />
+      <RadioButton fx:id="horsLigne" layoutX="333.0" layoutY="626.0" mnemonicParsing="false" onAction="#horsLigne" prefHeight="26.0" prefWidth="104.0" text="hors ligne ">
          <toggleGroup>
             <ToggleGroup fx:id="ligne" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="enLigne" layoutX="715.0" layoutY="625.0" mnemonicParsing="false" onAction="#enLigne" prefHeight="28.0" prefWidth="127.0" text="en ligne" toggleGroup="$ligne" />
-      <Label fx:id="choixlabel" layoutX="452.0" layoutY="557.0" prefHeight="18.0" prefWidth="224.0" text="choisir le protocol d'évaluation :">
+      <RadioButton fx:id="enLigne" layoutX="709.0" layoutY="625.0" mnemonicParsing="false" onAction="#enLigne" prefHeight="28.0" prefWidth="127.0" text="en ligne" toggleGroup="$ligne" />
+      <Label fx:id="choixlabel" layoutX="455.0" layoutY="563.0" prefHeight="18.0" prefWidth="224.0" text="choisir le protocol d'évaluation :">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="308.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="357.0" fitWidth="365.0" layoutX="385.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="371.0" fitWidth="364.0" layoutX="385.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@3820147.png" />
          </image>
