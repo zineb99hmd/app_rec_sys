@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="1178.0" style="-fx-background-color: #FFFDF9;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sr.page1">
+   <children>
+      <AnchorPane prefHeight="29.0" prefWidth="1178.0" style="-fx-background-color: #11324D;" stylesheets="@delete.css">
+         <children>
+            <Label layoutX="7.0" layoutY="1.0" prefHeight="28.0" prefWidth="326.0" text="  Evaluation des systèmes de recommandation" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <ImageView accessibleRole="BUTTON" fitHeight="29.0" fitWidth="28.0" layoutX="1138.0" onMouseClicked="#Quit" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@pngegg.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleRole="BUTTON" fitHeight="26.0" fitWidth="28.0" layoutX="1105.0" layoutY="1.0" onMouseClicked="#minimize" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@download-icon-close+delete+hide+minimize+minus+remove+icon-1320166550528400094_512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Button fx:id="commencer_evaluate" layoutX="470.0" layoutY="473.0" mnemonicParsing="false" onAction="#choix_evaluate" prefHeight="44.0" prefWidth="196.0" stylesheets="@dl.css" text="Commencer l'évaluation ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <RadioButton fx:id="horsLigne" layoutX="351.0" layoutY="640.0" mnemonicParsing="false" onAction="#horsLigne" prefHeight="26.0" prefWidth="104.0" stylesheets="@dl.css" text="Hors Ligne ">
+         <toggleGroup>
+            <ToggleGroup fx:id="ligne" />
+         </toggleGroup>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="enLigne" layoutX="709.0" layoutY="639.0" mnemonicParsing="false" onAction="#enLigne" prefHeight="28.0" prefWidth="127.0" stylesheets="@dl.css" text="En Ligne" toggleGroup="$ligne">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></RadioButton>
+      <Label fx:id="choixlabel" layoutX="462.0" layoutY="565.0" prefHeight="26.0" prefWidth="272.0" text="Choisir le protocol d'évaluation :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="362.0" fitWidth="391.0" layoutX="372.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@3820147.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

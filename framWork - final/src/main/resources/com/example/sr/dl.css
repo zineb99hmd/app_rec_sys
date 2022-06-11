@@ -1,0 +1,63 @@
+.button{
+    -fx-font-veight: bold;
+    -fx-background-color: 	#f8f8ff;
+    -fx-border-radius: 20;
+    
+    -fx-border-color: 	  #11324D	;
+    -fx-background-radius: 23;
+    -fx-border-width: 2;
+    -fx-border-veight:bold;
+    
+    
+    
+}
+.button:hover{
+    
+    -fx-background-color:	 #11324D;
+    -fx-text-fill: white;
+    -fx-border-width: 2;
+     -fx-border-color:  #C6B497;
+	
+}
+
+
+.button:pressed{
+     -fx-font-veight: bold;
+    -fx-background-color: 	 #C6B497;
+    -fx-text-fill: white;
+    -fx-border-color:  #11324D;
+    -fx-border-radius: 22;
+    -fx-border-veight:10;
+    -fx-background-radius: 22;
+-fx-content-display: LEFT;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+	
+    
+    
+    
+    
+    
+}
+
+
+.radio-button .radio{
+-fx-border-width     : 1px   ;
+-fx-border-color     : #000  ;
+-fx-background-color : white ;
+-fx-border-radius    : 15px  ;
+-fx-height           : 15px  ; 
+
+
+
+}
+.radio-button .radio:hover{
+-fx-border-width     : 1px   ;
+-fx-border-color     : brown  ;
+-fx-background-color : white ;
+-fx-border-radius    : 15px  ;
+-fx-height           : 15px  ; 
+-fx-effect:  dropshadow( one-pass-box , black , 8 ,
+     0.0 , 3 , 0 );
+};

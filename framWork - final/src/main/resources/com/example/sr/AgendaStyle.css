@@ -1,0 +1,39 @@
+
+
+.label{
+    
+    
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    
+    
+    
+}
+.label:hover{
+    
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    
+     
+   
+       
+    
+    
+    
+    
+}
+.button:hover{
+    
+    
+     -fx-effect:  dropshadow( one-pass-box , brown , 8 ,
+0.0 , 3 , 2 );
+    -fx-content-display: LEFT;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+       
+    
+    
+    
+    
+}

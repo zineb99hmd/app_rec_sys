@@ -1,0 +1,44 @@
+
+.progress-bar {
+   
+  
+    -fx-border-width: 2;
+    -fx-border-veight:bold;
+   -fx-background-color:
+        -fx-box-border,
+        linear-gradient(to bottom, derive(white,30%) 5%, derive(white,-17%));
+    -fx-background-insets: 3 3 4 3;
+	
+    -fx-indeterminate-bar-length: 100;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: True;
+    -fx-indeterminate-bar-animation-time: 2;
+    
+	
+}
+
+.progress-bar .bar {
+    -fx-background-color: -fx-box-border,
+        linear-gradient(to bottom, derive(-fx-accent,95%), derive(#11324D,10%)),
+        linear-gradient(to bottom, derive(-fx-accent,38%), -fx-accent);;
+-fx-background-insets: 3 3 4 3;
+    -fx-background-radius: 15;
+       
+   
+    -fx-padding: 0.416667em; /* 5 */
+}
+
+.progress-bar:indeterminate .bar {
+    -fx-background-color: linear-gradient(to left, transparent,  #11324D);
+}
+
+.progress-bar .track {
+
+   -fx-background-radius: 15;
+   -fx-background-color: #f8f8ff;
+  
+
+    
+	
+}
+
